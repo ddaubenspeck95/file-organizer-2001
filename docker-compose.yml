@@ -15,7 +15,6 @@ services:
       - MODEL_CLASSIFY=${MODEL_CLASSIFY}
       - MODEL_TAGGING=${MODEL_TAGGING}
       - MODEL_FOLDERS=${MODEL_FOLDERS}
-
       - OLLAMA_API_URL=${OLLAMA_API_URL}
     env_file:
       - app/.env.local
