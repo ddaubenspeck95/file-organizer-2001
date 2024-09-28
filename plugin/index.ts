@@ -242,7 +242,7 @@ export default class FileOrganizer extends Plugin {
       : [];
 
     const similarTags = instructions.shouldAppendSimilarTags
-      ? await this.getSimilarTags(textToFeedAi, documentName, )
+      ? await this.getSimilarTags(textToFeedAi, documentName,)
       : [];
 
     return {
@@ -437,14 +437,14 @@ export default class FileOrganizer extends Plugin {
   async formatContent(
     // make this an object
     {
-    file,
-    formattingInstruction,
-    content,
-  }: {
-    file: TFile;
-    formattingInstruction: string;
-    content: string;
-  }
+      file,
+      formattingInstruction,
+      content,
+    }: {
+      file: TFile;
+      formattingInstruction: string;
+      content: string;
+    }
   ): Promise<void> {
     try {
       new Notice("Formatting content...", 3000);
@@ -645,7 +645,7 @@ export default class FileOrganizer extends Plugin {
     formData.append("fileExtension", fileExtension);
     // const newServerUrl = "http://localhost:3001/transcribe";
     const newServerUrl =
-      "https://file-organizer-2000-production.up.railway.app/transcribe";
+      "https://file-organizer-2000-x.onrender.com/transcribe";
     const response = await fetch(newServerUrl, {
       method: "POST",
       body: formData,
@@ -699,7 +699,7 @@ export default class FileOrganizer extends Plugin {
       throw e;
     }
   }
-   getClassificationsForFabric(): string[] {
+  getClassificationsForFabric(): string[] {
     const patternFolder = this.app.vault.getAbstractFileByPath(
       '_FileOrganizer2000/patterns'
     );
@@ -998,7 +998,7 @@ export default class FileOrganizer extends Plugin {
   }
 
   // main.ts
-  async generateImageAnnotation(file: TFile, ) {
+  async generateImageAnnotation(file: TFile,) {
     new Notice(
       `Generating annotation for ${file.basename} this can take up to a minute`,
       8000
@@ -1052,18 +1052,18 @@ export default class FileOrganizer extends Plugin {
       return [];
     }
 
-      // Generate popular tags and select from them
-      return await generateTagsRouter(
-        content,
-        fileName,
-        tags,
-        this.settings.usePro,
-        this.getServerUrl(),
-        this.settings.API_KEY
-      );
+    // Generate popular tags and select from them
+    return await generateTagsRouter(
+      content,
+      fileName,
+      tags,
+      this.settings.usePro,
+      this.getServerUrl(),
+      this.settings.API_KEY
+    );
   }
 
-   async getAllVaultTags(): Promise<string[]> {
+  async getAllVaultTags(): Promise<string[]> {
     // Fetch all tags from the vault
     // @ts-ignore
     const tags: TagCounts = this.app.metadataCache.getTags();
@@ -1183,7 +1183,7 @@ export default class FileOrganizer extends Plugin {
     }
     const now = new Date();
     const formattedDate = moment(now).format("YYYY-MM-DD");
-    const logFilePath = `${this.settings.logFolderPath}/${formattedDate}.md`;
+    const logFilePath = `${this.settings.logFolderPath}/${formattedDate}..md`;
     // if does not exist create it
     if (!(await this.app.vault.adapter.exists(normalizePath(logFilePath)))) {
       await this.app.vault.create(logFilePath, "");
