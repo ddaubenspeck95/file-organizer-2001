@@ -725,11 +725,11 @@ export default class FileOrganizer extends Plugin {
           templateNames: classifications,
         })
       });
-  
+
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
       }
-  
+
       const { documentType } = await response.json();
       return documentType;
     } catch (error) {
