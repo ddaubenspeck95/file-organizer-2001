@@ -5,7 +5,7 @@ services:
       context: .
       dockerfile: Dockerfile
     ports:
-      - "7883:7883"  # Changed port from 3333 to 7883
+      - "3333:3333"
     environment:
       - OPENAI_API_KEY=${OPENAI_API_KEY}
       - SOLO_API_KEY=${SOLO_API_KEY}
@@ -16,6 +16,5 @@ services:
       - MODEL_TAGGING=${MODEL_TAGGING}
       - MODEL_FOLDERS=${MODEL_FOLDERS}
       - OLLAMA_API_URL=${OLLAMA_API_URL}
-      - ENABLE_USER_MANAGEMENT=false  # Disabled user management
     env_file:
       - .env.local
