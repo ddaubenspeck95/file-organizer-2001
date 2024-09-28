@@ -1,5 +1,5 @@
 # vscode
-.vscode 
+.vscode
 
 # Intellij
 *.iml
@@ -24,3 +24,4 @@ data.json
 .DS_Store
 
 .env.local
+.env.local.example
